@@ -1,0 +1,23 @@
+sudo: required
+dist: trusty
+language: python
+python:
+- '3.5'
+env:
+  global:
+    secure: xhxFyCIuARSq8mS7kDgIEfRHWSPUs3js0aJVn0MI+1ChCHd+DEdx2dA9B5JC1nOU4Ugz3dFlGn9kCXIA6ySrWAHzu5pBhrim4/3O44h8LSaAd/KlPsNhLpdCKOat9w2m5xvsMJjfwkLGlfLegQzWcBSD+PBoRL7e3uGlDQSaSHR1c3FexoHfctPvvYSBbYjmXX6wMJweoQ4bxEKQId4tq5XE05Sckao0hpclnvTZbo5YeAlw/YahS/mWOy5xJSfKDpxoC0kiS+cc3wUzoQu3PySX5JzXlBr1uPSZFMkMphM40PmJEEfXCO03ELXyzy8eyULhWY5vaAukMq3hmdYoFVNKr+pxi8HGVIVKs2alcaYEP0HYQKqB8rij8z2EpjTh/o5Po34fST9FZ2T8UzwOscOHCm+cMUyH6UbeMK3KcsaoUVj9eoG9o7Mx0CfjQlU8fpYaQESqfT0CwhnH5YNpM+T3axrv8qtSnaHtrxB3vl5Mgm8ObG2tTQUSm6FwlelyNLrCWsGePoN8YvTHW6EeMOI/BOvpGW8ar3yHKJ5E/b/lXFHN46zZXekJg2MdSYTAgaH8d885lQKaFm9H34vHiQlqBcsHQyibhckp2eo20mmFwygs8qPTqXXGzAzPyRj5MxsA1smyVpWj+ya3dr1hbovhW56GIXMSgw9wdSMT0ps=
+install:
+- sudo pip install pelican jinja2 markdown
+script:
+- git config --global user.email "$GIT_EMAIL"
+- git config --global user.name "$GIT_NAME"
+- git config --global push.default simple
+- git clone --depth=1 https://github.com/haoqixu/flex theme
+- git clone --depth=1 https://$GH_TOKEN@github.com/haoqixu/haoqixu.github.io _output
+- make publish
+after_success:
+- cd _output
+- rsync -a --delete --delete-after --exclude '.git' ../output/ ./
+- git add -A .
+- git commit -m "Update from travis, build $TRAVIS_BUILD_NUMBER on $(hostname)"
+- git push --quiet
