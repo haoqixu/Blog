@@ -54,8 +54,8 @@ MENUITEMS = [
     ('archives', '/archives.html'),
     ('categories', '/categories.html'),
     ('tags', '/tags.html'),
-]
 
+]
 
 STATIC_PATHS = ['static',
                 'img',
@@ -65,12 +65,12 @@ EXTRA_PATH_METADATA = {
     'static/CNAME': {'path': 'CNAME'},
 }
 
-MD_EXTENSIONS = [
-    'admonition',
-    'toc',
-    'codehilite(css_class=highlight)',
-    'extra',
-]
+MARKDOWN = {'extension_configs': {
+    'admonition': {},
+    'toc': {},
+    'codehilite': {'css_class': 'highlight', 'linenums': False },
+    'extra': {}
+}}
 
 ARTICLE_URL = 'posts/{date:%Y}/{date:%m}/{slug}.html'
 ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/{slug}.html'

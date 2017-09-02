@@ -2,19 +2,25 @@ sudo: required
 dist: trusty
 language: python
 python:
-- '3.5'
+- '3.6'
 env:
   global:
     secure: ssaNZKIpAWsszmQaYPlkyxto3zZQ8HSuPvLQb1U3n4eyhntnUrpXHOEm8V6WaniLpaTvOeWyyY5HbpOuWK3KrkOPrf969diyRBSo6+rfbamxoGwQFIITkmwVU1LBZ/8KYOWRaNN0bgEcRFv4r2g8UVLBwoFGgGOfe0v4/ukcwg7lsBWjUApARXK3h8FPg6lGqjpg9DkIpZRR19YheiMkneAp4Ozui+DK0swqHhI+C0rJodZzp1KmNld2NQMFkRYBdbRzY7znVDXzz5bAyLswVulZf6TgN1er6UY+kknYCs6ZH8wpgGRJCaX12JNRbA7jjagdKZZ8SwiuMK+mw24Cv7jvyWSI04D2FpzS86kYNuAxv+1/Oif4aQYE9WiFdgw4AaGrt6fWqVU2zWDtoN7Xq1UqvfdaGwha/GTqRplrsKTdwjWnTRW9iY+qqGkG18Ygftoj47RZGCSBCbmro0hhkP2EIVksScLGUaRMkKbfvzj04CRADfNrs0e88JBU0ItNrHnoJBLikSGjt4kqbg9FcMDC5bvotIgBgy+PpfimYiIGszzzIxRr8yCJrgtYJa0i8ICL2aNEvsbfZhMA+dt+6vLWPH4ASrQbhV5U/SyeA0Dd94GPoePw8kLgMYOc5rwj3hjoy5QqeQX1zaSYk3k87QeSsXo5VSv1+VkJDgeeswU=
+cache:
+- pip
+before_install:
+- sudo apt-get update
+- sudo apt-get -y install python3-pip
 install:
-- sudo pip install pelican jinja2 markdown
+- sudo pip3 install pelican jinja2 markdown
 script:
+- pelican --version
 - git config --global user.email "$GIT_EMAIL"
 - git config --global user.name "$GIT_NAME"
 - git config --global push.default simple
 - git clone --depth=1 https://github.com/haoqixu/flex theme
 - git clone --depth=1 https://$GH_TOKEN@github.com/haoqixu/haoqixu.github.io _output
-- make publish
+- make DEBUG=1 publish
 after_success:
 - cd _output
 - rsync -a --delete --delete-after --exclude '.git' ../output/ ./
