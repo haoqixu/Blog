@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 AUTHOR = 'xu0o0'
-SITENAME = "xu0o0's Blog"
+SITENAME = "~xu0o0"
 SITEURL = '//blog.xu0o0.me'
 
 PATH = 'content'
@@ -42,7 +42,7 @@ STATIC_PATHS = [
 
 THEME = 'theme'
 SITELOGO = '/img/avatar.jpg'
-SITETITLE = "xu0o0's Blog"
+SITETITLE = "~xu0o0"
 OG_LOCALE = 'zh_CN'
 CC_LICENSE = {
     'name': 'CC-BY-NC-SA',
