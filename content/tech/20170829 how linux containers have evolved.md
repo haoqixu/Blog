@@ -1,7 +1,7 @@
 Title: 【译】Linux 容器演化史
 Date: 2017-08-29
 Category: Tech
-Tags: container, Docker, Linux, 翻译
+Tags: container, docker, linux, 翻译
 Slug: how-linux-containers-evolved
 Authors: xu0o0
 

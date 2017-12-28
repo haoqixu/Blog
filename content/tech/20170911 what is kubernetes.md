@@ -1,7 +1,7 @@
 Title: 【译】Kubernetes 是什么？
 Date: 2017-09-11
 Category: Tech
-Tags: container, Docker, Linux, Kubernetes, 翻译
+Tags: container, docker, linux, kubernetes, 翻译
 Slug: what-is-kubernetes
 Authors: xu0o0
 
