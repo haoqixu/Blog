@@ -19,7 +19,7 @@ Authors: xu0o0
 
 在过去几年内，容器不仅成为了开发者们热议的话题，还受到了企业的关注。持续增长的关注使得在它的安全性、可扩展性以及互用性等方面的需求也得以增长。满足这些需求需要很大的工程量，下面我们讲讲在红帽这样的企业级这些工程是如何发展的。
 
-我在 2013 年秋季第一次遇到 Docker 公司（Docker.io）的代表，那时我们在设法使 Red Hat Enterprise Linux (RHEL) 支持 Docker 容器（现在 Docker 项目的一部分已经更名为 _Moby_）的运行。在移植过程中，我们遇到了一些问题。处理容器镜像分层所需的写时拷贝（COW）文件系统成了我们第一个重大阻碍。Red Hat 最终贡献了一些 COW 文件系统实现，包括 [Device Mapper][13]、[btrf][14]，以及 [OverlayFS][15] 的第一个版本。在 RHEL 上，我们默认使用 Device Mapper， 但是我们在 OverlayFS 上也已经取得了很大进展。
+我在 2013 年秋季第一次遇到 Docker 公司（Docker.io）的代表，那时我们在设法使 Red Hat Enterprise Linux (RHEL) 支持 Docker 容器（现在 Docker 项目的一部分已经更名为 _Moby_）的运行。在移植过程中，我们遇到了一些问题。处理容器镜像分层所需的写时拷贝（COW）文件系统成了我们第一个重大阻碍。Red Hat 最终贡献了一些 COW 文件系统实现，包括 [Device Mapper][13]、[btrfs][14]，以及 [OverlayFS][15] 的第一个版本。在 RHEL 上，我们默认使用 Device Mapper， 但是我们在 OverlayFS 上也已经取得了很大进展。
 
 我们在用于启动容器的工具上遇到了第二个主要障碍。那时的上游 docker 使用 [LXC][16] 工具来启动容器，然而我们不想在 RHEL 上支持 LXC 工具集。而且在与上游 docker 合作之前，我们已经与 [libvrit][17] 团队携手构建了 [virt-sandbox][18] 工具，它使用 `libvrit-lxc` 来启动容器。
 
