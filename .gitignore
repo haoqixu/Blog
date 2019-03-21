@@ -65,6 +65,7 @@ Session.vim
 .netrwhist
 *~
 
+venv/
 
 drafts/
 output/

@@ -10,7 +10,7 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *  # noqa
 
-SITEURL = 'http://blog.xu0o0.me'
+SITEURL = '//blog.xu0o0.me'
 RELATIVE_URLS = False
 
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
