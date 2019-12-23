@@ -7,18 +7,19 @@ from __future__ import unicode_literals
 
 import os
 import sys
+
 sys.path.append(os.curdir)
 from pelicanconf import *  # noqa
 
-SITEURL = '//blog.xu0o0.me'
+SITEURL = "//blog.xu0o0.me"
 RELATIVE_URLS = False
 
-FEED_ALL_ATOM = 'feeds/all.atom.xml'
-CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
+FEED_ALL_ATOM = "feeds/all.atom.xml"
+CATEGORY_FEED_ATOM = "feeds/%s.atom.xml"
 
 DELETE_OUTPUT_DIRECTORY = True
 
 # Following items are often useful when publishing
 
-DISQUS_SITENAME = 'xu0o0'
-GOOGLE_ANALYTICS = 'UA-85250016-1'
+DISQUS_SITENAME = "xu0o0"
+GOOGLE_ANALYTICS = "UA-85250016-1"
