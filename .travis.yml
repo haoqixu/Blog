@@ -1,26 +1,26 @@
-sudo: required
-dist: trusty
 language: python
 python:
-- '3.6'
-cache:
-- pip
-before_install:
-- sudo apt-get update
-- sudo apt-get -y install python3-pip
+  - '3.7'
+cache: pip
+
 install:
-- sudo pip3 install pelican jinja2 markdown
+  - python --version
+  - pip --version
+  - pip install pelican
+  - pip install Markdown jinja2
+
 script:
-- pelican --version
-- git config --global user.email "$GIT_EMAIL"
-- git config --global user.name "$GIT_NAME"
-- git config --global push.default simple
-- git clone --depth=1 https://github.com/haoqixu/flex theme
-- git clone --depth=1 https://$GH_TOKEN@github.com/haoqixu/haoqixu.github.io _output
-- make DEBUG=1 publish
+  - pelican --version
+  - git config --global user.email "$GIT_EMAIL"
+  - git config --global user.name "$GIT_NAME"
+  - git config --global push.default simple
+  - git clone --depth=1 https://github.com/haoqixu/flex theme
+  - git clone --depth=1 https://$GH_TOKEN@github.com/haoqixu/haoqixu.github.io _output
+  - make DEBUG=1 publish
+
 after_success:
-- cd _output
-- rsync -a --delete --delete-after --exclude '.git' ../output/ ./
-- git add -A .
-- git commit -m "Update from travis, build $TRAVIS_BUILD_NUMBER on $(hostname)"
-- git push --quiet
+  - cd _output
+  - rsync -a --delete --delete-after --exclude '.git' ../output/ ./
+  - git add -A .
+  - git commit -m "Update from travis, build $TRAVIS_BUILD_NUMBER on $(hostname)"
+  - git push --quiet
