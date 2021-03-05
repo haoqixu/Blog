@@ -2,7 +2,7 @@ xu0o0's Blog
 ============
 [![Build Status](https://travis-ci.org/haoqixu/Blog.svg?branch=master)](https://travis-ci.org/haoqixu/Blog)
 
-Pelican source for my personal blog, http://blog.xu0o0.me
+Pelican source for my personal blog, http://blog.xu0o0.org
 
 Licence
 -------
