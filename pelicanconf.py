@@ -29,6 +29,7 @@ AUTHOR_FEED_RSS = None
 
 SOCIAL = [
     ("github", "https://github.com/haoqixu"),
+    ("twitter", "https://twitter.com/haoqixu_0o0"),
     ("envelope-o", "mailto:hqcat6@gmail.com"),
 ]
 
